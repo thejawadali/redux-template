@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
+import Toggle from "./Toggle"
+function App () {
+  const [coworkers, setCowrokers] = useState( [
+    { first_name: 'Max', last_name: 'Mustermann', inOffice: "true" },
+    { first_name: 'Vladimir', last_name: 'Leles', inOffice: false },
+    { first_name: 'Tobias', last_name: 'Anhalt', inOffice: false },
+  ] )
 
-function App() {
+  const changeStatus = ( e ) => {
+    console.log( "change" )
+    setCowrokers(...coworkers, )
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div> 
+      <Toggle co_worker={coworkers[0]} changeStatus={changeStatus}></Toggle>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
